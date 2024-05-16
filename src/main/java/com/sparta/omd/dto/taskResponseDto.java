@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 
 @Getter
 public class taskResponseDto {
+    private Long taskId;
     private String title;
     private String content;
     private String manager;
@@ -14,6 +15,7 @@ public class taskResponseDto {
     private Timestamp time;
 
     public taskResponseDto(task t){
+        this.taskId = t.getTaskId();
         this.title = t.getTitle();
         this.content = t.getContent();
         this.manager = t.getManager();

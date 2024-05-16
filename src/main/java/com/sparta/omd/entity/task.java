@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 public class task {
+    private Long taskId;
     private String title;
     private String content;
     private String manager;
