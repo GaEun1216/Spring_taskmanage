@@ -23,4 +23,11 @@ public class task {
         this.password = requestDto.getPassword();
 
     }
+
+    public void update(taskRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
+        this.manager = requestDto.getManager();
+        this.password = requestDto.getPassword();
+    }
 }

@@ -57,5 +57,36 @@ public class taskController {
         }
     }
 
+    // Step 4 : 일정 수정
+    @PutMapping("/tasks/{id}")
+    public Long updateTask(@PathVariable Long id,@RequestBody taskRequestDto requestDto) {
+        if(taskList.containsKey(id)) {
+            task gettask = taskList.get(id);
+            if (gettask.getPassword().equals(requestDto.getPassword())){
+
+                // task update
+                gettask.update(requestDto);
+                Timestamp time = new Timestamp(System.currentTimeMillis());
+                gettask.setTime(time);
+                return gettask.getTaskId();
+            }else{
+                throw new IllegalArgumentException("PWD does not match");
+            }
+        }else{
+            throw new IllegalArgumentException("Task with id " + id + " not found");
+        }
+    }
+
+    // Step 5 : 일정 삭제
+    @DeleteMapping("/tasks/{id}")
+    public Long deleteTask(@PathVariable Long id) {
+        if(taskList.containsKey(id)) {
+            task gettask = taskList.get(id);
+            taskList.remove(id);
+            return gettask.getTaskId();
+        }else{
+            throw new IllegalArgumentException("Task with id " + id + " not found");
+        }
+    }
 
 }
