@@ -79,11 +79,18 @@ public class taskController {
 
     // Step 5 : 일정 삭제
     @DeleteMapping("/tasks/{id}")
-    public Long deleteTask(@PathVariable Long id) {
+    public Long deleteTask(@PathVariable Long id,@RequestBody Map<String,String> pw) {
         if(taskList.containsKey(id)) {
             task gettask = taskList.get(id);
-            taskList.remove(id);
-            return gettask.getTaskId();
+            if (gettask.getPassword().equals(pw.get("pw"))){
+
+                // remove task
+                taskList.remove(id);
+                return gettask.getTaskId();
+            }else{
+                throw new IllegalArgumentException("PWD does not match");
+            }
+
         }else{
             throw new IllegalArgumentException("Task with id " + id + " not found");
         }
