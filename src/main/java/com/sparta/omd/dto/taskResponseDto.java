@@ -3,7 +3,7 @@ package com.sparta.omd.dto;
 import com.sparta.omd.entity.task;
 import lombok.Getter;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 public class taskResponseDto {
@@ -12,7 +12,8 @@ public class taskResponseDto {
     private String content;
     private String manager;
     private String password;
-    private Timestamp time;
+    private LocalDateTime createdAt;
+    private LocalDateTime modifiedAt;
 
     public taskResponseDto(task t){
         this.taskId = t.getTaskId();
@@ -20,6 +21,7 @@ public class taskResponseDto {
         this.content = t.getContent();
         this.manager = t.getManager();
         this.password = t.getPassword();
-        this.time = t.getTime();
+        this.createdAt = t.getCreatedAt();
+        this.modifiedAt = t.getModifiedAt();
     }
 }
