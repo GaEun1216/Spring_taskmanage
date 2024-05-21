@@ -26,7 +26,8 @@
         - 개체들 사이의 관계를 정의합니다.
             - ex) `저자`는 여러 권의 `책`을 집필할 수 있습니다. 이때, 저자와 책의 관계는 일대다(1:N) 관계입니다.
     
-![OMD (1)](https://github.com/GaEun1216/Spring_taskmanage/assets/51986588/8293ee6e-08ab-4462-9de6-47a5fe536e62)
+![image](https://github.com/GaEun1216/Spring_taskmanage/assets/51986588/00de7a80-3295-40ba-b9be-07289c0a37bc)
+
 
     
 - **API 테스트 하기!**
